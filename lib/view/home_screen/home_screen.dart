@@ -5,6 +5,8 @@ import 'package:sizer/sizer.dart';
 import 'package:lottie/lottie.dart';
 import 'package:get/get.dart';
 
+import 'result_screen/result_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final HomeController _homeController = Get.put(HomeController());
@@ -67,6 +69,17 @@ class HomeScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () => _homeController.pickImageFromGallery(),
+                child: uploadButton(
+                  'assets/images/gallery.png',
+                  'Upload Image From Gallery',
+                  10.w,
+                ),
+              ),
+              InkWell(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultScreen())),
                 child: uploadButton(
                   'assets/images/gallery.png',
                   'Upload Image From Gallery',
